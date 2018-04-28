@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            body, h2 {
+                color: #333;
+                font-size: 12px;
+            }
+
+            h2 {
+                font-size: 14px;
+            }
+
+            #css-indicator,
+            #js-indicator {
+                margin: 32px 16px;
+            }
+
+            #js-indicator,
+            #css-indicator::after {
+                content: 'default';
+                color: #555;
+                font-weight: 600;
+            }
+
+            @media screen and (max-width: 800px) {
+                #css-indicator::after {
+                    content: 'max-width: 800px';
+                }
+            }
+
+            @media screen and (max-width: 700px) {
+                #css-indicator::after {
+                    content: 'max-width: 700px';
+                }
+            }
+
+            @media screen and (max-width: 600px) {
+                #css-indicator::after {
+                    content: 'max-width: 600px';
+                }
+            }
+
+            @media screen and (max-width: 500px) {
+                #css-indicator::after {
+                    content: 'max-width: 500px';
+                }
+            }
+
+            @media screen and (max-width: 400px) {
+                #css-indicator::after {
+                    content: 'max-width: 400px';
+                }
+            }
+
+            @media screen and (max-width: 380px) {
+                #css-indicator::after {
+                    content: 'max-width: 380px';
+                }
+            }
+
+            @media screen and (max-width: 360px) {
+                #css-indicator::after {
+                    content: 'max-width: 360px';
+                }
+            }
+
+            @media screen and (max-width: 340px) {
+                #css-indicator::after {
+                    content: 'max-width: 340px';
+                }
+            }
+
+            @media screen and (max-width: 320px) {
+                #css-indicator::after {
+                    content: 'max-width: 320px';
+                }
+            }
+
+            @media screen and (max-width: 300px) {
+                #css-indicator::after {
+                    content: 'max-width: 300px';
+                }
+            }
+
+            @media screen and (max-width: 200px) {
+                #css-indicator::after {
+                    content: 'max-width: 200px';
+                }
+            }
+        </style>
+        <script type='text/javascript'>
+            window.onerror = function (e) { window.alert(e) }
+            document.addEventListener('DOMContentLoaded', ready)
+            window.onresize = ready
+
+            function screenInformation () {
+                return ['availWidth', 'availHeight', 'width', 'height', 'colorDepth', 'pixelDepth', 'availLeft', 'availTop'].reduce(function (result, key) {
+                    result.push(key + ': ' + window.screen[key])
+                    return result
+                }, [])
+            }
+
+            function ready () {
+                var el = document.getElementById('js-indicator')
+                if (!el) { return }
+                el.innerHTML = '<h2>window.screen</h2>' + screenInformation().join('<br />')
+            }
+        </script>
+    </head>
+    <body>
+        <div id='css-indicator'><h2>screen width by css media query</h2></div>
+        <div id='js-indicator'>Something went wrong</div>
+    </body>
+</html>
